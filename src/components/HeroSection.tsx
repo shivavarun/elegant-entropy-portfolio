@@ -1,4 +1,5 @@
 
+import { SplineSceneBasic } from "@/components/ui/code.demo";
 import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
@@ -6,7 +7,7 @@ const HeroSection = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white -z-10" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12">
-        <div className="text-center">
+        <div className="text-center mb-12">
           <p className="text-base sm:text-lg text-gray-600 mb-5 animate-fadeIn">
             Welcome to entropy.dev
           </p>
@@ -34,6 +35,7 @@ const HeroSection = () => {
             </a>
           </div>
         </div>
+        <SplineSceneBasic />
       </div>
     </section>
   );
