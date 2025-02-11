@@ -30,7 +30,7 @@ const ServicesSection = () => {
           <span className="text-sm font-semibold tracking-wider text-gray-500 uppercase">
             What We Do
           </span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
             Our Services
           </h2>
         </div>
@@ -39,12 +39,12 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="p-8 rounded-xl bg-white border border-gray-100 hover:border-gray-200 transition-colors"
+              className="p-8 rounded-xl bg-white border border-gray-100 hover:border-gray-200 transition-colors group"
             >
-              <div className="w-12 h-12 bg-gray-900 text-white rounded-lg flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-gray-900 text-white rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <service.icon className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">{service.title}</h3>
               <p className="text-gray-600">{service.description}</p>
             </div>
           ))}

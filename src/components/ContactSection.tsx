@@ -26,7 +26,7 @@ const ContactSection = () => {
           <span className="text-sm font-semibold tracking-wider text-gray-500 uppercase">
             Get in Touch
           </span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
             Start a Project
           </h2>
         </div>
@@ -42,7 +42,7 @@ const ContactSection = () => {
                 id="name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900 sm:text-sm"
+                className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900 sm:text-sm"
                 required
               />
             </div>
@@ -56,7 +56,7 @@ const ContactSection = () => {
                 id="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900 sm:text-sm"
+                className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900 sm:text-sm"
                 required
               />
             </div>
@@ -70,7 +70,7 @@ const ContactSection = () => {
                 rows={4}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900 sm:text-sm"
+                className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-gray-900 focus:ring-gray-900 sm:text-sm"
                 required
               />
             </div>

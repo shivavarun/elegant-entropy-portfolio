@@ -7,28 +7,28 @@ const projects = [
     id: 1,
     title: "E-commerce Platform",
     category: "Web Development",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
     description: "A modern e-commerce platform with advanced filtering and search capabilities."
   },
   {
     id: 2,
     title: "Jewelry Store",
     category: "Web Design",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334",
     description: "Elegant online jewelry store with 3D product visualization."
   },
   {
     id: 3,
     title: "Electronics Marketplace",
     category: "Web Development",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
     description: "Feature-rich electronics marketplace with real-time inventory."
   },
   {
     id: 4,
     title: "Mobile App UI Kit",
     category: "Design",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
     description: "Comprehensive mobile app UI kit with over 100 components."
   }
 ];
@@ -49,12 +49,12 @@ const ProjectsSection = () => {
           <span className="text-sm font-semibold tracking-wider text-gray-500 uppercase">
             Our Work
           </span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
             Featured Projects
           </h2>
         </div>
 
-        <div className="flex justify-center space-x-4 mb-12">
+        <div className="flex justify-center space-x-4 mb-12 flex-wrap gap-4">
           {categories.map((category) => (
             <button
               key={category}
@@ -70,7 +70,7 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
@@ -91,7 +91,7 @@ const ProjectsSection = () => {
                 <span className="text-sm font-medium text-gray-500">
                   {project.category}
                 </span>
-                <h3 className="mt-2 text-xl font-semibold">{project.title}</h3>
+                <h3 className="mt-2 text-xl font-semibold text-gray-900">{project.title}</h3>
                 <p className="mt-2 text-gray-600">{project.description}</p>
               </div>
             </motion.div>
