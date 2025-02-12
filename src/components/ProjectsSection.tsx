@@ -45,16 +45,16 @@ const ProjectsSection = () => {
       ),
     },
     {
-      title: "Jewelry Store",
+      title: "Jewellery Store",
       content: (
         <div>
           <p className="text-foreground text-xs md:text-sm font-normal mb-8">
-            An elegant jewelry e-commerce website with 3D product visualization and secure payment integration.
+            An elegant jewellery e-commerce website with 3D product visualization and secure payment integration.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
               src="/lovable-uploads/274d3b16-3b42-45dd-a0f2-0bcdf647a202.png"
-              alt="Gold and diamond jewelry"
+              alt="Gold and diamond jewellery"
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
             />
             <img
@@ -66,10 +66,10 @@ const ProjectsSection = () => {
           <div className="mt-8">
             <h4 className="text-foreground font-semibold mb-2">Key Features:</h4>
             <ul className="text-muted-foreground text-sm space-y-1">
-              <li>• Premium jewelry showcase with high-quality imagery</li>
+              <li>• Premium jewellery showcase with high-quality imagery</li>
               <li>• Detailed product specifications and sizing options</li>
               <li>• Secure payment processing for valuable items</li>
-              <li>• Custom jewelry design consultation</li>
+              <li>• Custom jewellery design consultation</li>
               <li>• International shipping with CITES compliance</li>
             </ul>
           </div>
