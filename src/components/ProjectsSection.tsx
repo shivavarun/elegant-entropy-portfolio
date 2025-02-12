@@ -50,19 +50,29 @@ const ProjectsSection = () => {
       content: (
         <div>
           <p className="text-foreground text-xs md:text-sm font-normal mb-8">
-            Coming soon: An elegant jewelry e-commerce website with 3D product visualization and secure payment integration.
+            An elegant jewelry e-commerce website with 3D product visualization and secure payment integration.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="/lovable-uploads/6b1798fd-f908-492c-9c93-863890728d81.png"
-              alt="Shopping cart"
+              src="/lovable-uploads/274d3b16-3b42-45dd-a0f2-0bcdf647a202.png"
+              alt="Gold and diamond jewelry"
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
             />
             <img
-              src="/lovable-uploads/5a0a06a9-b063-4ecd-b274-6b787218f9f9.png"
-              alt="Product catalog"
+              src="/lovable-uploads/ceba49a8-08d6-4779-a8c6-0fadf678063b.png"
+              alt="Gold bracelet and ring"
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
             />
+          </div>
+          <div className="mt-8">
+            <h4 className="text-foreground font-semibold mb-2">Key Features:</h4>
+            <ul className="text-muted-foreground text-sm space-y-1">
+              <li>• Premium jewelry showcase with high-quality imagery</li>
+              <li>• Detailed product specifications and sizing options</li>
+              <li>• Secure payment processing for valuable items</li>
+              <li>• Custom jewelry design consultation</li>
+              <li>• International shipping with CITES compliance</li>
+            </ul>
           </div>
         </div>
       ),
