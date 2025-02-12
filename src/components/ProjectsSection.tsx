@@ -1,4 +1,3 @@
-
 import { Timeline } from "@/components/ui/timeline";
 
 const ProjectsSection = () => {
@@ -82,10 +81,39 @@ const ProjectsSection = () => {
       content: (
         <div>
           <p className="text-foreground text-xs md:text-sm font-normal mb-8">
-            Coming soon: A comprehensive UI kit for food delivery applications, featuring modern design components and smooth animations.
+            A comprehensive mobile UI kit for food delivery applications, featuring modern design components, intuitive user flows, and smooth animations.
           </p>
-          <div className="h-40 md:h-60 w-full flex items-center justify-center bg-secondary/30 rounded-lg">
-            <p className="text-muted-foreground">Project in development</p>
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="/lovable-uploads/235383c3-0a90-404c-a066-41ba8db7987e.png"
+              alt="User onboarding screens"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+            />
+            <img
+              src="/lovable-uploads/3574f3b5-d3fa-49fe-812e-7983c485d425.png"
+              alt="Restaurant listing and search"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+            />
+            <img
+              src="/lovable-uploads/04777d4b-ef79-4ad7-afc6-d6a2183698ba.png"
+              alt="Food ordering and checkout process"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+            />
+            <img
+              src="/lovable-uploads/48710398-5e70-40b0-b426-9a5083ea8f01.png"
+              alt="User profile and order tracking"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+            />
+          </div>
+          <div className="mt-8">
+            <h4 className="text-foreground font-semibold mb-2">Key Features:</h4>
+            <ul className="text-muted-foreground text-sm space-y-1">
+              <li>• Sleek onboarding flow with social authentication</li>
+              <li>• Restaurant discovery with advanced search and filters</li>
+              <li>• Real-time order tracking with live map integration</li>
+              <li>• Secure payment system with multiple options</li>
+              <li>• User profile management and order history</li>
+            </ul>
           </div>
         </div>
       ),
