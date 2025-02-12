@@ -1,103 +1,90 @@
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-
-const projects = [
-  {
-    id: 1,
-    title: "E-commerce Platform",
-    category: "Web Development",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-    description: "A modern e-commerce platform with advanced filtering and search capabilities."
-  },
-  {
-    id: 2,
-    title: "Jewelry Store",
-    category: "Web Design",
-    image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334",
-    description: "Elegant online jewelry store with 3D product visualization."
-  },
-  {
-    id: 3,
-    title: "Electronics Marketplace",
-    category: "Web Development",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
-    description: "Feature-rich electronics marketplace with real-time inventory."
-  },
-  {
-    id: 4,
-    title: "Mobile App UI Kit",
-    category: "Design",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
-    description: "Comprehensive mobile app UI kit with over 100 components."
-  }
-];
-
-const categories = ["All", "Web Development", "Web Design", "Design"];
+import { Timeline } from "@/components/ui/timeline";
 
 const ProjectsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredProjects = projects.filter(
-    project => activeCategory === "All" || project.category === activeCategory
-  );
+  const projects = [
+    {
+      title: "E-commerce Store",
+      content: (
+        <div>
+          <p className="text-foreground text-xs md:text-sm font-normal mb-8">
+            A modern clothing e-commerce platform with advanced filtering, shopping cart functionality, and a seamless checkout process.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="/lovable-uploads/1722307a-a1da-4627-98fd-597c99d0f4bc.png"
+              alt="E-commerce home page"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+            />
+            <img
+              src="/lovable-uploads/fb452799-229c-4c3a-b65b-9bb68ac6ec4b.png"
+              alt="E-commerce products page"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+            />
+            <img
+              src="/lovable-uploads/dd664b13-d2de-4836-8a7c-6629a908a399.png"
+              alt="Product detail page"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+            />
+            <img
+              src="/lovable-uploads/c1265774-7e66-44b2-a71f-d6f9c56c7b61.png"
+              alt="Checkout page"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+            />
+          </div>
+          <div className="mt-8">
+            <h4 className="text-foreground font-semibold mb-2">Key Features:</h4>
+            <ul className="text-muted-foreground text-sm space-y-1">
+              <li>• Advanced filtering system with size, availability, and price range</li>
+              <li>• Responsive design with mobile-first approach</li>
+              <li>• Interactive product gallery with multiple view options</li>
+              <li>• Streamlined checkout process with order summary</li>
+              <li>• Shopping cart with real-time updates</li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Jewelry Store",
+      content: (
+        <div>
+          <p className="text-foreground text-xs md:text-sm font-normal mb-8">
+            Coming soon: An elegant jewelry e-commerce website with 3D product visualization and secure payment integration.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="/lovable-uploads/6b1798fd-f908-492c-9c93-863890728d81.png"
+              alt="Shopping cart"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+            />
+            <img
+              src="/lovable-uploads/5a0a06a9-b063-4ecd-b274-6b787218f9f9.png"
+              alt="Product catalog"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-lg"
+            />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Mobile Food UI Kit",
+      content: (
+        <div>
+          <p className="text-foreground text-xs md:text-sm font-normal mb-8">
+            Coming soon: A comprehensive UI kit for food delivery applications, featuring modern design components and smooth animations.
+          </p>
+          <div className="h-40 md:h-60 w-full flex items-center justify-center bg-secondary/30 rounded-lg">
+            <p className="text-muted-foreground">Project in development</p>
+          </div>
+        </div>
+      ),
+    },
+  ];
 
   return (
-    <section id="projects" className="section-padding bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-sm font-semibold tracking-wider text-gray-500 uppercase">
-            Our Work
-          </span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
-            Featured Projects
-          </h2>
-        </div>
-
-        <div className="flex justify-center space-x-4 mb-12 flex-wrap gap-4">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeCategory === category
-                  ? "bg-gray-900 text-white"
-                  : "bg-white text-gray-600 hover:bg-gray-100"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project) => (
-            <motion.div
-              key={project.id}
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="aspect-video overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <span className="text-sm font-medium text-gray-500">
-                  {project.category}
-                </span>
-                <h3 className="mt-2 text-xl font-semibold text-gray-900">{project.title}</h3>
-                <p className="mt-2 text-gray-600">{project.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+    <section id="projects" className="relative">
+      <Timeline data={projects} />
     </section>
   );
 };
