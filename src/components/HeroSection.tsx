@@ -3,6 +3,7 @@
 import { useScroll, useTransform } from "framer-motion";
 import React from "react";
 import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect";
+import { SparklesText } from "@/components/ui/sparkles-text";
 import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
@@ -24,17 +25,24 @@ const HeroSection = () => {
         className="h-[400vh] bg-black w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip"
         ref={ref}
       >
-        <GoogleGeminiEffect
-          pathLengths={[
-            pathLengthFirst,
-            pathLengthSecond,
-            pathLengthThird,
-            pathLengthFourth,
-            pathLengthFifth,
-          ]}
-          title="Crafting Digital Experiences"
-          description="We specialize in creating beautiful, functional websites and applications that help businesses grow and succeed in the digital world."
-        />
+        <div className="flex flex-col items-center justify-center gap-8">
+          <SparklesText 
+            text="Entropydev.vercel" 
+            className="text-4xl md:text-5xl text-white"
+            colors={{ first: "#FFB7C5", second: "#4FABFF" }}
+          />
+          <GoogleGeminiEffect
+            pathLengths={[
+              pathLengthFirst,
+              pathLengthSecond,
+              pathLengthThird,
+              pathLengthFourth,
+              pathLengthFifth,
+            ]}
+            title="Crafting Digital Experiences"
+            description="We specialize in creating beautiful, functional websites and applications that help businesses grow and succeed in the digital world."
+          />
+        </div>
       </div>
       <div className="fixed bottom-10 left-1/2 -translate-x-1/2 flex gap-4 z-50">
         <a
