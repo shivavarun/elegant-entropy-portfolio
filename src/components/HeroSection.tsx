@@ -20,15 +20,15 @@ const HeroSection = () => {
   const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
 
   return (
-    <section id="home" className="min-h-screen relative">
+    <section id="home" className="min-h-[100vh] relative">
       <div
-        className="h-[400vh] bg-black w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip"
+        className="h-[400vh] w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-hidden bg-black"
         ref={ref}
       >
-        <div className="flex flex-col items-center justify-center gap-8">
+        <div className="flex flex-col items-center justify-center gap-6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
           <SparklesText 
             text="Entropydev.vercel" 
-            className="text-4xl md:text-5xl text-white"
+            className="text-4xl md:text-7xl text-white mb-4"
             colors={{ first: "#FFB7C5", second: "#4FABFF" }}
           />
           <GoogleGeminiEffect
@@ -41,6 +41,7 @@ const HeroSection = () => {
             ]}
             title="Crafting Digital Experiences"
             description="We specialize in creating beautiful, functional websites and applications that help businesses grow and succeed in the digital world."
+            className="w-full"
           />
         </div>
       </div>
