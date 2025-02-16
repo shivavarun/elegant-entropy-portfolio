@@ -1,7 +1,7 @@
 
 "use client";
 import { useScroll, useTransform } from "framer-motion";
-import React, { useEffect } from "react";
+import React from "react";
 import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect";
 import { SparklesText } from "@/components/ui/sparkles-text";
 import { ArrowRight } from "lucide-react";
@@ -19,32 +19,13 @@ const HeroSection = () => {
   const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
   const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
 
-  useEffect(() => {
-    document.body.style.overflowY = "hidden";
-    
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      
-      if (scrollPosition >= viewportHeight) {
-        document.body.style.overflowY = "auto";
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      document.body.style.overflowY = "auto";
-    };
-  }, []);
-
   return (
-    <section id="home" className="h-screen w-full">
+    <section id="home" className="h-screen relative">
       <div
-        className="h-screen w-full dark:border dark:border-white/[0.1] relative pt-40 overflow-hidden bg-black"
+        className="h-[100vh] w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-hidden bg-black"
         ref={ref}
       >
-        <div className="flex flex-col items-center justify-center gap-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl mx-auto px-4">
+        <div className="flex flex-col items-center justify-center gap-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
           <SparklesText 
             text="Entropydev.vercel" 
             className="text-4xl md:text-7xl text-white mb-4"
@@ -63,21 +44,21 @@ const HeroSection = () => {
             className="w-full"
           />
         </div>
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-4">
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full hover:bg-primary/90 transition-colors"
-          >
-            View Projects
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-full border border-border hover:bg-secondary/80 transition-colors"
-          >
-            Get in Touch
-          </a>
-        </div>
+      </div>
+      <div className="fixed bottom-10 left-1/2 -translate-x-1/2 flex gap-4 z-50">
+        <a
+          href="#projects"
+          className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full hover:bg-primary/90 transition-colors"
+        >
+          View Projects
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </a>
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 rounded-full border border-border hover:bg-secondary/80 transition-colors"
+        >
+          Get in Touch
+        </a>
       </div>
     </section>
   );
