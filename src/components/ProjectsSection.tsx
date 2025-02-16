@@ -7,8 +7,8 @@ const ProjectsSection = () => {
     {
       title: "E-commerce Store",
       content: (
-        <div className="text-white">
-          <p className="text-gray-300 text-xs md:text-sm font-normal mb-8">
+        <div>
+          <p className="text-foreground text-xs md:text-sm font-normal mb-8">
             A modern clothing e-commerce platform with advanced filtering, shopping cart functionality, and a seamless checkout process.
           </p>
           <div className="grid grid-cols-2 gap-4">
@@ -34,8 +34,8 @@ const ProjectsSection = () => {
             />
           </div>
           <div className="mt-8">
-            <h4 className="text-white font-semibold mb-2">Key Features:</h4>
-            <ul className="text-gray-300 text-sm space-y-1">
+            <h4 className="text-foreground font-semibold mb-2">Key Features:</h4>
+            <ul className="text-muted-foreground text-sm space-y-1">
               <li>• Advanced filtering system with size, availability, and price range</li>
               <li>• Responsive design with mobile-first approach</li>
               <li>• Interactive product gallery with multiple view options</li>
@@ -49,8 +49,8 @@ const ProjectsSection = () => {
     {
       title: "Jewellery Store",
       content: (
-        <div className="text-white">
-          <p className="text-gray-300 text-xs md:text-sm font-normal mb-8">
+        <div>
+          <p className="text-foreground text-xs md:text-sm font-normal mb-8">
             An elegant jewellery e-commerce website with 3D product visualization and secure payment integration.
           </p>
           <div className="grid grid-cols-2 gap-4">
@@ -66,8 +66,8 @@ const ProjectsSection = () => {
             />
           </div>
           <div className="mt-8">
-            <h4 className="text-white font-semibold mb-2">Key Features:</h4>
-            <ul className="text-gray-300 text-sm space-y-1">
+            <h4 className="text-foreground font-semibold mb-2">Key Features:</h4>
+            <ul className="text-muted-foreground text-sm space-y-1">
               <li>• Premium jewellery showcase with high-quality imagery</li>
               <li>• Detailed product specifications and sizing options</li>
               <li>• Secure payment processing for valuable items</li>
@@ -81,8 +81,8 @@ const ProjectsSection = () => {
     {
       title: "Mobile Food UI Kit",
       content: (
-        <div className="text-white">
-          <p className="text-gray-300 text-xs md:text-sm font-normal mb-8">
+        <div>
+          <p className="text-foreground text-xs md:text-sm font-normal mb-8">
             A comprehensive mobile UI kit for food delivery applications, featuring modern design components, intuitive user flows, and smooth animations.
           </p>
           <div className="grid grid-cols-2 gap-4">
@@ -108,8 +108,8 @@ const ProjectsSection = () => {
             />
           </div>
           <div className="mt-8">
-            <h4 className="text-white font-semibold mb-2">Key Features:</h4>
-            <ul className="text-gray-300 text-sm space-y-1">
+            <h4 className="text-foreground font-semibold mb-2">Key Features:</h4>
+            <ul className="text-muted-foreground text-sm space-y-1">
               <li>• Sleek onboarding flow with social authentication</li>
               <li>• Restaurant discovery with advanced search and filters</li>
               <li>• Real-time order tracking with live map integration</li>
@@ -126,7 +126,7 @@ const ProjectsSection = () => {
     <section id="projects" className="relative bg-black">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.15)_0%,rgba(0,0,0,0)_80%)]" />
-        <div className="stars absolute inset-0 bg-[radial-gradient(2px_2px_at_20px_30px,#eee,rgba(0,0,0,0)),radial-gradient(2px_2px_at_40px_70px,#fff,rgba(0,0,0,0)),radial-gradient(2px_2px_at_50px_160px,#ddd,rgba(0,0,0,0)),radial-gradient(2px_2px_at_90px_40px,#fff,rgba(0,0,0,0)),radial-gradient(2px_2px_at_130px_80px,#fff,rgba(0,0,0,0)),radial-gradient(2px_2px_at_160px_120px,#ddd,rgba(0,0,0,0))] bg-repeat bg-[size:200px_200px] animate-[twinkle_5s_ease-in-out_infinite] opacity-50" />
+        <div className="stars absolute inset-0" />
       </div>
       
       <ShootingStars
@@ -147,6 +147,28 @@ const ProjectsSection = () => {
       />
       
       <Timeline data={projects} />
+      
+      <style jsx>{`
+        .stars {
+          background-image: 
+            radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+          background-repeat: repeat;
+          background-size: 200px 200px;
+          animation: twinkle 5s ease-in-out infinite;
+          opacity: 0.5;
+        }
+
+        @keyframes twinkle {
+          0% { opacity: 0.5; }
+          50% { opacity: 0.8; }
+          100% { opacity: 0.5; }
+        }
+      `}</style>
     </section>
   );
 };
