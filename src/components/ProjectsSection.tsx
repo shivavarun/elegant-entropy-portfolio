@@ -1,3 +1,4 @@
+
 import { Timeline } from "@/components/ui/timeline";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 
@@ -6,8 +7,8 @@ const ProjectsSection = () => {
     {
       title: "E-commerce Store",
       content: (
-        <div>
-          <p className="text-foreground text-xs md:text-sm font-normal mb-8">
+        <div className="text-white">
+          <p className="text-gray-300 text-xs md:text-sm font-normal mb-8">
             A modern clothing e-commerce platform with advanced filtering, shopping cart functionality, and a seamless checkout process.
           </p>
           <div className="grid grid-cols-2 gap-4">
@@ -33,8 +34,8 @@ const ProjectsSection = () => {
             />
           </div>
           <div className="mt-8">
-            <h4 className="text-foreground font-semibold mb-2">Key Features:</h4>
-            <ul className="text-muted-foreground text-sm space-y-1">
+            <h4 className="text-white font-semibold mb-2">Key Features:</h4>
+            <ul className="text-gray-300 text-sm space-y-1">
               <li>• Advanced filtering system with size, availability, and price range</li>
               <li>• Responsive design with mobile-first approach</li>
               <li>• Interactive product gallery with multiple view options</li>
@@ -48,8 +49,8 @@ const ProjectsSection = () => {
     {
       title: "Jewellery Store",
       content: (
-        <div>
-          <p className="text-foreground text-xs md:text-sm font-normal mb-8">
+        <div className="text-white">
+          <p className="text-gray-300 text-xs md:text-sm font-normal mb-8">
             An elegant jewellery e-commerce website with 3D product visualization and secure payment integration.
           </p>
           <div className="grid grid-cols-2 gap-4">
@@ -65,8 +66,8 @@ const ProjectsSection = () => {
             />
           </div>
           <div className="mt-8">
-            <h4 className="text-foreground font-semibold mb-2">Key Features:</h4>
-            <ul className="text-muted-foreground text-sm space-y-1">
+            <h4 className="text-white font-semibold mb-2">Key Features:</h4>
+            <ul className="text-gray-300 text-sm space-y-1">
               <li>• Premium jewellery showcase with high-quality imagery</li>
               <li>• Detailed product specifications and sizing options</li>
               <li>• Secure payment processing for valuable items</li>
@@ -80,8 +81,8 @@ const ProjectsSection = () => {
     {
       title: "Mobile Food UI Kit",
       content: (
-        <div>
-          <p className="text-foreground text-xs md:text-sm font-normal mb-8">
+        <div className="text-white">
+          <p className="text-gray-300 text-xs md:text-sm font-normal mb-8">
             A comprehensive mobile UI kit for food delivery applications, featuring modern design components, intuitive user flows, and smooth animations.
           </p>
           <div className="grid grid-cols-2 gap-4">
@@ -107,8 +108,8 @@ const ProjectsSection = () => {
             />
           </div>
           <div className="mt-8">
-            <h4 className="text-foreground font-semibold mb-2">Key Features:</h4>
-            <ul className="text-muted-foreground text-sm space-y-1">
+            <h4 className="text-white font-semibold mb-2">Key Features:</h4>
+            <ul className="text-gray-300 text-sm space-y-1">
               <li>• Sleek onboarding flow with social authentication</li>
               <li>• Restaurant discovery with advanced search and filters</li>
               <li>• Real-time order tracking with live map integration</li>
