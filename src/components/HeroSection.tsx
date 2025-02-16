@@ -1,7 +1,7 @@
 
 "use client";
 import { useScroll, useTransform } from "framer-motion";
-import React, { useEffect } from "react";
+import React from "react";
 import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect";
 import { SparklesText } from "@/components/ui/sparkles-text";
 
@@ -17,29 +17,6 @@ const HeroSection = () => {
   const pathLengthThird = useTransform(scrollYProgress, [0, 0.8], [0.1, 1.2]);
   const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
   const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
-
-  useEffect(() => {
-    // Initially lock scroll
-    document.body.style.overflowY = "hidden";
-    
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      
-      // Allow scrolling only after passing the viewport height
-      if (scrollPosition >= viewportHeight) {
-        document.body.style.overflowY = "auto";
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    
-    // Cleanup function
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      document.body.style.overflowY = "auto";
-    };
-  }, []);
 
   return (
     <section id="home" className="h-screen relative">
