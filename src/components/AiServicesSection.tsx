@@ -1,32 +1,86 @@
 
-import { Brain, Robot, Database, Code, Server } from "lucide-react";
+import { Brain, Bot, Database, Code, Server, Bot as Assistant, Mail, Share2, ShoppingCart, FileText, FileSearch, Stethoscope } from "lucide-react";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 
 const aiServices = [
   {
-    icon: Brain,
-    title: "AI Consulting",
-    description: "Strategic guidance for implementing AI solutions in your business, with focus on ROI and scalability."
+    title: "AI Agents & Automation",
+    description: "Empower your business with intelligent AI agents that automate tasks, streamline operations, and enhance efficiency.",
+    services: [
+      {
+        icon: Bot,
+        title: "Custom AI Assistants",
+        description: "AI-powered virtual assistants tailored for your business needs."
+      },
+      {
+        icon: Assistant,
+        title: "Chatbots & Conversational AI",
+        description: "Smart chatbots for customer support, sales, and automation."
+      },
+      {
+        icon: Code,
+        title: "Task Automation Agents",
+        description: "AI-driven tools that integrate with APIs for workflow automation."
+      },
+      {
+        icon: Database,
+        title: "AI Research & Data Collection",
+        description: "AI that scrapes, summarizes, and analyzes data from the web."
+      }
+    ]
   },
   {
-    icon: Robot,
-    title: "Chatbot Development",
-    description: "Custom AI chatbots and virtual assistants powered by latest LLM technologies for enhanced customer engagement."
+    title: "AI Business Solutions",
+    description: "Leverage AI for smarter decision-making and seamless automation.",
+    services: [
+      {
+        icon: Brain,
+        title: "AI Sales & Lead Qualification",
+        description: "Automate lead generation and client engagement processes."
+      },
+      {
+        icon: Mail,
+        title: "AI-powered Email Outreach",
+        description: "AI that handles email campaigns and follow-ups effectively."
+      },
+      {
+        icon: Share2,
+        title: "AI Social Media Manager",
+        description: "AI-driven content creation, scheduling, and audience engagement."
+      },
+      {
+        icon: ShoppingCart,
+        title: "AI E-commerce Solutions",
+        description: "Personalized product recommendations to boost sales."
+      }
+    ]
   },
   {
-    icon: Database,
-    title: "Data Analytics",
-    description: "Advanced AI-driven data analysis and visualization to unlock valuable insights from your business data."
+    title: "AI Legal & Document Processing",
+    description: "Optimize legal and document workflows with AI-powered automation.",
+    services: [
+      {
+        icon: FileText,
+        title: "AI Document & Legal Assistant",
+        description: "AI that drafts, summarizes, and organizes legal documents."
+      },
+      {
+        icon: FileSearch,
+        title: "OCR & Text Extraction",
+        description: "Extract key information from documents, PDFs, and images."
+      }
+    ]
   },
   {
-    icon: Code,
-    title: "AI Integration",
-    description: "Seamless integration of AI models and APIs into your existing applications and workflows."
-  },
-  {
-    icon: Server,
-    title: "AI Infrastructure",
-    description: "Scalable and secure infrastructure setup for AI model deployment and management."
+    title: "AI Healthcare Solutions",
+    description: "AI-driven solutions for healthcare and wellness.",
+    services: [
+      {
+        icon: Stethoscope,
+        title: "AI Virtual Health Assistant",
+        description: "AI chatbot for symptom checks, appointment scheduling, and health guidance."
+      }
+    ]
   }
 ];
 
@@ -68,17 +122,28 @@ const AiServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {aiServices.map((service, index) => (
-            <div
-              key={index}
-              className="p-8 rounded-xl bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all hover:translate-y-[-4px] group"
-            >
-              <div className="w-12 h-12 bg-white/10 text-white rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <service.icon className="w-6 h-6" />
+        <div className="space-y-16">
+          {aiServices.map((category, categoryIndex) => (
+            <div key={categoryIndex} className="space-y-6">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-white">{category.title}</h3>
+                <p className="mt-2 text-gray-300 max-w-3xl mx-auto">{category.description}</p>
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-white">{service.title}</h3>
-              <p className="text-gray-300">{service.description}</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {category.services.map((service, serviceIndex) => (
+                  <div
+                    key={serviceIndex}
+                    className="p-6 rounded-xl bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all hover:translate-y-[-4px] group h-full"
+                  >
+                    <div className="w-12 h-12 bg-white/10 text-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <service.icon className="w-6 h-6" />
+                    </div>
+                    <h4 className="text-lg font-semibold mb-2 text-white">{service.title}</h4>
+                    <p className="text-gray-300 text-sm">{service.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
