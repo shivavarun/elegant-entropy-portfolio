@@ -4,6 +4,7 @@ import { useScroll, useTransform } from "framer-motion";
 import React from "react";
 import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect";
 import { SparklesText } from "@/components/ui/sparkles-text";
+import { ShootingStars } from "@/components/ui/shooting-stars";
 
 const HeroSection = () => {
   const ref = React.useRef(null);
@@ -24,6 +25,23 @@ const HeroSection = () => {
         className="h-[100vh] w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-hidden bg-black"
         ref={ref}
       >
+        <ShootingStars
+          starColor="#00FFB2"
+          trailColor="#4FABFF"
+          minSpeed={20}
+          maxSpeed={40}
+          minDelay={1500}
+          maxDelay={3500}
+        />
+        <ShootingStars
+          starColor="#FF00E5"
+          trailColor="#FFB800"
+          minSpeed={10}
+          maxSpeed={25}
+          minDelay={2000}
+          maxDelay={4000}
+        />
+        
         <div className="flex flex-col items-center justify-center gap-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
           <SparklesText 
             text="Entropydev.vercel" 
