@@ -130,11 +130,16 @@ const AiServicesSection = () => {
                 <p className="mt-2 text-gray-300 max-w-3xl mx-auto">{category.description}</p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ${
+                (category.title === "AI Legal & Document Processing" || 
+                 category.title === "AI Healthcare Solutions") 
+                ? "lg:justify-items-center lg:grid-cols-2 lg:max-w-3xl lg:mx-auto" 
+                : ""
+              }`}>
                 {category.services.map((service, serviceIndex) => (
                   <div
                     key={serviceIndex}
-                    className="p-6 rounded-xl bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all hover:translate-y-[-4px] group h-full"
+                    className="p-6 rounded-xl bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all hover:translate-y-[-4px] group h-full w-full"
                   >
                     <div className="w-12 h-12 bg-white/10 text-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <service.icon className="w-6 h-6" />
