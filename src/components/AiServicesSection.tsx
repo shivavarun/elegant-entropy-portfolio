@@ -49,36 +49,19 @@ const aiServices = [
         description: "AI-driven content creation, scheduling, and audience engagement."
       },
       {
-        icon: ShoppingCart,
-        title: "AI E-commerce Solutions",
-        description: "Personalized product recommendations to boost sales."
-      }
-    ]
-  },
-  {
-    title: "AI Legal & Document Processing",
-    description: "Optimize legal and document workflows with AI-powered automation.",
-    services: [
-      {
         icon: FileText,
-        title: "AI Document & Legal Assistant",
-        description: "AI that drafts, summarizes, and organizes legal documents."
+        title: "AI Document Assistant",
+        description: "AI that drafts, summarizes, and organizes documents intelligently."
       },
       {
         icon: FileSearch,
-        title: "OCR & Text Extraction",
-        description: "Extract key information from documents, PDFs, and images."
-      }
-    ]
-  },
-  {
-    title: "AI Healthcare Solutions",
-    description: "AI-driven solutions for healthcare and wellness.",
-    services: [
+        title: "OCR & Text Processing",
+        description: "Extract and process information from documents, PDFs, and images."
+      },
       {
         icon: Stethoscope,
-        title: "AI Virtual Health Assistant",
-        description: "AI chatbot for symptom checks, appointment scheduling, and health guidance."
+        title: "AI Virtual Assistant",
+        description: "Smart chatbot for scheduling, guidance, and automated support."
       }
     ]
   }
@@ -130,12 +113,7 @@ const AiServicesSection = () => {
                 <p className="mt-2 text-gray-300 max-w-3xl mx-auto">{category.description}</p>
               </div>
               
-              <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ${
-                (category.title === "AI Legal & Document Processing" || 
-                 category.title === "AI Healthcare Solutions") 
-                ? "lg:justify-items-center lg:grid-cols-2 lg:max-w-3xl lg:mx-auto" 
-                : ""
-              }`}>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {category.services.map((service, serviceIndex) => (
                   <div
                     key={serviceIndex}
