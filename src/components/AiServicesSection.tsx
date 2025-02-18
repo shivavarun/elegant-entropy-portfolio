@@ -1,4 +1,3 @@
-
 import { Brain, Bot, Database, Code, Server, Bot as Assistant, Mail, Share2, ShoppingCart, FileText, FileSearch, Stethoscope, Smartphone, Palette } from "lucide-react";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 
@@ -152,27 +151,21 @@ const AiServicesSection = () => {
           ))}
         </div>
 
-        {/* Case Study Section */}
+        {/* Case Study Quote */}
         <div className="mt-32 relative">
-          <div className="relative rounded-2xl overflow-hidden bg-black/30 backdrop-blur-sm border border-white/10">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="p-8 md:p-12">
-                <h3 className="text-3xl font-bold mb-6 text-gradient bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
-                  AI is the Future
-                </h3>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Even industry giants like Zomato are leveraging AI for 10X growth! Nugget, their AI-native customer support platform, is revolutionizing business scalability and automation. The AI revolution is here—are you ready?
-                </p>
-              </div>
-              <div className="relative h-[400px] w-full">
-                <img 
-                  src="/lovable-uploads/30880827-43f6-42dd-b1cb-a38615b25e13.png"
-                  alt="Nugget AI Platform by Zomato"
-                  className="object-cover h-full w-full rounded-r-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent rounded-r-2xl" />
-              </div>
-            </div>
+          <div className="relative rounded-2xl overflow-hidden bg-black/30 backdrop-blur-sm border border-white/10 p-8 md:p-12 text-center">
+            <h3 className="text-3xl font-bold mb-6 text-gradient bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+              AI is the Future
+            </h3>
+            <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              Even industry giants like 
+              <img 
+                src="/lovable-uploads/5a0a06a9-b063-4ecd-b274-6b787218f9f9.png" 
+                alt="Zomato" 
+                className="inline-block h-6 mx-2 -mt-1"
+              /> 
+              are leveraging AI for 10X growth! Nugget, their AI-native customer support platform, is revolutionizing business scalability and automation. The AI revolution is here—are you ready?
+            </p>
           </div>
         </div>
       </div>
