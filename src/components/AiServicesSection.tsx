@@ -1,5 +1,5 @@
 
-import { Brain, Bot, Database, Code, Server, Bot as Assistant, Mail, Share2, ShoppingCart, FileText, FileSearch, Stethoscope } from "lucide-react";
+import { Brain, Bot, Database, Code, Server, Bot as Assistant, Mail, Share2, ShoppingCart, FileText, FileSearch, Stethoscope, Smartphone, Palette } from "lucide-react";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 
 const aiServices = [
@@ -64,6 +64,27 @@ const aiServices = [
         description: "Smart chatbot for scheduling, guidance, and automated support."
       }
     ]
+  },
+  {
+    title: "Development Services",
+    description: "Expert development services to bring your digital vision to life with modern technologies and best practices.",
+    services: [
+      {
+        icon: Code,
+        title: "Web Development",
+        description: "Custom websites built with modern technologies, optimized for performance and user experience."
+      },
+      {
+        icon: Smartphone,
+        title: "App Development",
+        description: "Native and cross-platform mobile applications that deliver seamless experiences across devices."
+      },
+      {
+        icon: Palette,
+        title: "UI/UX Design",
+        description: "Beautiful, intuitive interfaces designed with user-centered principles and attention to detail."
+      }
+    ]
   }
 ];
 
@@ -95,13 +116,13 @@ const AiServicesSection = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <span className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
-            AI Solutions
+            Our Services
           </span>
           <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-white">
-            Our AI Services
+            AI & Development Solutions
           </h2>
           <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
-            Leverage the power of artificial intelligence to transform your business with our comprehensive suite of AI services.
+            Leverage the power of artificial intelligence and expert development to transform your business with our comprehensive suite of services.
           </p>
         </div>
 
