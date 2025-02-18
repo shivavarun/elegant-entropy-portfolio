@@ -15,6 +15,22 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80; // Height of the fixed navbar
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -32,24 +48,28 @@ const Navbar = () => {
             <div className="ml-10 flex items-baseline space-x-8">
               <a
                 href="#home"
+                onClick={(e) => handleNavClick(e, 'home')}
                 className="text-gray-900 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 Home
               </a>
               <a
-                href="#projects"
-                className="text-gray-900 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                Projects
-              </a>
-              <a
                 href="#services"
+                onClick={(e) => handleNavClick(e, 'services')}
                 className="text-gray-900 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 Services
               </a>
               <a
+                href="#projects"
+                onClick={(e) => handleNavClick(e, 'projects')}
+                className="text-gray-900 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                Projects
+              </a>
+              <a
                 href="#contact"
+                onClick={(e) => handleNavClick(e, 'contact')}
                 className="text-gray-900 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 Contact
@@ -72,29 +92,29 @@ const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
             <a
               href="#home"
+              onClick={(e) => handleNavClick(e, 'home')}
               className="text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition-colors"
-              onClick={() => setIsMenuOpen(false)}
             >
               Home
             </a>
             <a
-              href="#projects"
-              className="text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Projects
-            </a>
-            <a
               href="#services"
+              onClick={(e) => handleNavClick(e, 'services')}
               className="text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition-colors"
-              onClick={() => setIsMenuOpen(false)}
             >
               Services
             </a>
             <a
-              href="#contact"
+              href="#projects"
+              onClick={(e) => handleNavClick(e, 'projects')}
               className="text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+            >
+              Projects
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, 'contact')}
+              className="text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition-colors"
             >
               Contact
             </a>

@@ -90,7 +90,7 @@ const aiServices = [
 
 const AiServicesSection = () => {
   return (
-    <section className="section-padding relative bg-black text-white">
+    <section id="services" className="section-padding relative bg-black text-white">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.15)_0%,rgba(0,0,0,0)_80%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(2px_2px_at_20px_30px,#eee,rgba(0,0,0,0)),radial-gradient(2px_2px_at_40px_70px,#fff,rgba(0,0,0,0)),radial-gradient(2px_2px_at_50px_160px,#ddd,rgba(0,0,0,0)),radial-gradient(2px_2px_at_90px_40px,#fff,rgba(0,0,0,0)),radial-gradient(2px_2px_at_130px_80px,#fff,rgba(0,0,0,0)),radial-gradient(2px_2px_at_160px_120px,#ddd,rgba(0,0,0,0))] bg-repeat bg-[size:200px_200px] animate-[twinkle_5s_ease-in-out_infinite] opacity-50" />
@@ -150,6 +150,30 @@ const AiServicesSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Case Study Section */}
+        <div className="mt-32 relative">
+          <div className="relative rounded-2xl overflow-hidden bg-black/30 backdrop-blur-sm border border-white/10">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="p-8 md:p-12">
+                <h3 className="text-3xl font-bold mb-6 text-gradient bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+                  AI is the Future
+                </h3>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  Even industry giants like Zomato are leveraging AI for 10X growth! Nugget, their AI-native customer support platform, is revolutionizing business scalability and automation. The AI revolution is here—are you ready?
+                </p>
+              </div>
+              <div className="relative h-[400px] w-full">
+                <img 
+                  src="/lovable-uploads/30880827-43f6-42dd-b1cb-a38615b25e13.png"
+                  alt="Nugget AI Platform by Zomato"
+                  className="object-cover h-full w-full rounded-r-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent rounded-r-2xl" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
