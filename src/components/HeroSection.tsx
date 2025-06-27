@@ -41,6 +41,11 @@ const HeroSection = () => {
             className="text-4xl md:text-7xl text-white mb-4"
             colors={{ first: "#FFB7C5", second: "#4FABFF" }}
           />
+          <div className="text-center mb-6">
+            <p className="text-white/80 text-lg md:text-xl font-light tracking-wide">
+              by <span className="text-white font-medium">Shiva Varun</span>
+            </p>
+          </div>
           <GoogleGeminiEffect
             pathLengths={[
               pathLengthFirst,
