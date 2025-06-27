@@ -1,5 +1,6 @@
 import { Brain, Bot, Database, Code, Server, Bot as Assistant, Mail, Share2, ShoppingCart, FileText, FileSearch, Stethoscope, Smartphone, Palette } from "lucide-react";
 import { ShootingStars } from "@/components/ui/shooting-stars";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 const aiServices = [
   {
@@ -135,16 +136,17 @@ const AiServicesSection = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {category.services.map((service, serviceIndex) => (
-                  <div
+                  <SpotlightCard
                     key={serviceIndex}
                     className="p-6 rounded-xl bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all hover:translate-y-[-4px] group h-full w-full"
+                    spotlightColor="rgba(255, 255, 255, 0.15)"
                   >
                     <div className="w-12 h-12 bg-white/10 text-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <service.icon className="w-6 h-6" />
                     </div>
                     <h4 className="text-lg font-semibold mb-2 text-white">{service.title}</h4>
                     <p className="text-gray-300 text-sm">{service.description}</p>
-                  </div>
+                  </SpotlightCard>
                 ))}
               </div>
             </div>
