@@ -30,6 +30,9 @@ const HeroSection = () => {
             className="text-4xl md:text-7xl text-white mb-4"
             colors={{ first: "#FFB7C5", second: "#4FABFF" }}
           />
+          <p className="text-sm md:text-lg text-neutral-400 font-light tracking-wide">
+            by Shiva Varun
+          </p>
           <GoogleGeminiEffect
             pathLengths={[
               pathLengthFirst,
