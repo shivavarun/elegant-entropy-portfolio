@@ -1,9 +1,10 @@
 
 "use client";
-import { useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import React from "react";
-import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect";
+import { Vortex } from "@/components/ui/vortex";
 import { SparklesText } from "@/components/ui/sparkles-text";
+import { ChevronDown } from "lucide-react";
 
 const HeroSection = () => {
   const ref = React.useRef(null);
@@ -11,6 +12,10 @@ const HeroSection = () => {
     target: ref,
     offset: ["start start", "end start"],
   });
+  // Fade and slide the hero title out as the user scrolls so it feels like
+  // it transitions into the navbar brand.
+  const heroTitleOpacity = useTransform(scrollYProgress, [0, 0.15, 0.3], [1, 0.5, 0]);
+  const heroTitleY = useTransform(scrollYProgress, [0, 0.3], [0, -24]);
 
   const pathLengthFirst = useTransform(scrollYProgress, [0, 0.8], [0.2, 1.2]);
   const pathLengthSecond = useTransform(scrollYProgress, [0, 0.8], [0.15, 1.2]);
@@ -18,34 +23,59 @@ const HeroSection = () => {
   const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
   const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
 
+  const scrollToServices = () => {
+    const el = document.getElementById("services");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <section id="home" className="h-screen relative">
+    <section id="home" className="relative">
       <div
-        className="h-[100vh] w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-hidden bg-black"
+        className="h-[90vh] md:h-[100vh] w-screen relative overflow-hidden bg-black"
         ref={ref}
       >
-        <div className="flex flex-col items-center justify-center gap-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
-          <SparklesText 
-            text="Entropydev.vercel" 
-            className="text-4xl md:text-7xl text-white mb-4"
-            colors={{ first: "#FFB7C5", second: "#4FABFF" }}
-          />
+        <Vortex
+          backgroundColor="#000000"
+          particleCount={900}
+          rangeY={180}
+          baseRadius={1}
+          rangeRadius={3}
+          rangeSpeed={1.8}
+          className="w-full h-full"
+          containerClassName="absolute inset-0"
+        >
+        </Vortex>
+        <div className="flex flex-col items-center justify-center gap-6 absolute inset-x-0 top-[35%] -translate-y-1/2 w-full">
+          <motion.div style={{ opacity: heroTitleOpacity, y: heroTitleY }}>
+            <SparklesText 
+              text="entropydev.vercel" 
+              className="text-5xl md:text-8xl text-white mb-4"
+              colors={{ first: "#FFB7C5", second: "#4FABFF" }}
+            />
+          </motion.div>
           <p className="text-sm md:text-lg text-neutral-400 font-light tracking-wide">
             by Shiva Varun
           </p>
-          <GoogleGeminiEffect
-            pathLengths={[
-              pathLengthFirst,
-              pathLengthSecond,
-              pathLengthThird,
-              pathLengthFourth,
-              pathLengthFifth,
-            ]}
-            title="Crafting Digital Experiences"
-            description="We specialize in creating beautiful, functional websites and applications that help businesses grow and succeed in the digital world."
-            className="w-full"
-          />
+          <div className="max-w-3xl px-4 text-center">
+            <p className="text-2xl md:text-6xl font-normal pb-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
+              Crafting Digital Experiences
+            </p>
+            <p className="text-sm md:text-xl font-normal text-neutral-400 mt-3">
+              We specialize in creating beautiful, functional websites and applications that help businesses grow and succeed in the digital world.
+            </p>
+          </div>
         </div>
+        <motion.button
+          onClick={scrollToServices}
+          aria-label="Scroll to services"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 p-2 rounded-full border border-white/30 text-white/80 hover:text-white hover:border-white/60 bg-white/5 backdrop-blur-sm"
+          animate={{ y: [0, 8, 0], opacity: [0.7, 1, 0.7] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown className="w-5 h-5" />
+        </motion.button>
       </div>
     </section>
   );

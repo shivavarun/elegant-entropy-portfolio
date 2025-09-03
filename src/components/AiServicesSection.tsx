@@ -1,6 +1,7 @@
 import { Brain, Bot, Database, Code, Server, Bot as Assistant, Mail, Share2, ShoppingCart, FileText, FileSearch, Stethoscope, Smartphone, Palette } from "lucide-react";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import SpotlightCard from "@/components/ui/SpotlightCard";
+import { Grid } from "@/components/ui/grid-pattern";
 
 const aiServices = [
   {
@@ -80,9 +81,9 @@ const aiServices = [
         description: "Native and cross-platform mobile applications that deliver seamless experiences across devices."
       },
       {
-        icon: Palette,
-        title: "UI/UX Design",
-        description: "Beautiful, intuitive interfaces designed with user-centered principles and attention to detail."
+        icon: Share2,
+        title: "Digital Marketing",
+        description: "Data-driven SEO, content and paid campaigns to grow traffic, leads and conversions."
       }
     ]
   }
@@ -134,42 +135,28 @@ const AiServicesSection = () => {
                 <p className="mt-2 text-gray-300 max-w-3xl mx-auto">{category.description}</p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {category.services.map((service, serviceIndex) => (
-                  <SpotlightCard
+                  <div
                     key={serviceIndex}
-                    className="p-6 rounded-xl bg-black/50 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all hover:translate-y-[-4px] group h-full w-full"
-                    spotlightColor="rgba(255, 255, 255, 0.15)"
+                    className="relative rounded-3xl p-6 bg-gradient-to-b from-white/5 to-white/[0.02] border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1 overflow-hidden"
                   >
-                    <div className="w-12 h-12 bg-white/10 text-white rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <service.icon className="w-6 h-6" />
+                    <Grid size={18} />
+                    <div className="relative z-10">
+                      <div className="w-12 h-12 bg-white/10 text-white rounded-xl flex items-center justify-center mb-4">
+                        <service.icon className="w-6 h-6" />
+                      </div>
+                      <h4 className="text-lg font-semibold mb-2 text-white">{service.title}</h4>
+                      <p className="text-gray-300 text-sm">{service.description}</p>
                     </div>
-                    <h4 className="text-lg font-semibold mb-2 text-white">{service.title}</h4>
-                    <p className="text-gray-300 text-sm">{service.description}</p>
-                  </SpotlightCard>
+                  </div>
                 ))}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Case Study Quote */}
-        <div className="mt-32 relative">
-          <div className="relative rounded-2xl overflow-hidden bg-black/30 backdrop-blur-sm border border-white/10 p-8 md:p-12 text-center">
-            <h3 className="text-3xl font-bold mb-6 text-gradient bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
-              AI is the Future
-            </h3>
-            <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
-              Even industry giants like 
-              <img 
-                src="/lovable-uploads/5a0a06a9-b063-4ecd-b274-6b787218f9f9.png" 
-                alt="Zomato" 
-                className="inline-block h-6 mx-2 -mt-1"
-              /> 
-              are leveraging AI for 10X growth! Nugget, their AI-native customer support platform, is revolutionizing business scalability and automation. The AI revolution is here—are you ready?
-            </p>
-          </div>
-        </div>
+        
       </div>
     </section>
   );
