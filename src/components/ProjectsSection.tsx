@@ -1,5 +1,4 @@
 import { Timeline } from "@/components/ui/timeline";
-import { ShootingStars } from "@/components/ui/shooting-stars";
 
 const ProjectsSection = () => {
   const projects = [
@@ -122,29 +121,7 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="relative bg-black">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.15)_0%,rgba(0,0,0,0)_80%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(2px_2px_at_20px_30px,#eee,rgba(0,0,0,0)),radial-gradient(2px_2px_at_40px_70px,#fff,rgba(0,0,0,0)),radial-gradient(2px_2px_at_50px_160px,#ddd,rgba(0,0,0,0)),radial-gradient(2px_2px_at_90px_40px,#fff,rgba(0,0,0,0)),radial-gradient(2px_2px_at_130px_80px,#fff,rgba(0,0,0,0)),radial-gradient(2px_2px_at_160px_120px,#ddd,rgba(0,0,0,0))] bg-repeat bg-[size:200px_200px] animate-[twinkle_5s_ease-in-out_infinite] opacity-50" />
-      </div>
-      
-      <ShootingStars
-        starColor="#9E00FF"
-        trailColor="#2EB9DF"
-        minSpeed={15}
-        maxSpeed={35}
-        minDelay={1000}
-        maxDelay={3000}
-      />
-      <ShootingStars
-        starColor="#FF0099"
-        trailColor="#FFB800"
-        minSpeed={10}
-        maxSpeed={25}
-        minDelay={2000}
-        maxDelay={4000}
-      />
-      
+    <section id="projects" className="relative bg-black text-white">
       <Timeline data={projects} />
     </section>
   );
