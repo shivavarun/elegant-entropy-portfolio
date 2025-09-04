@@ -55,15 +55,17 @@ const HeroSection = () => {
               colors={{ first: "#FFB7C5", second: "#4FABFF" }}
             />
           </motion.div>
-          <p className="text-sm md:text-lg text-neutral-400 font-light tracking-wide">
-            by Shiva Varun
+          <p className="font-bold tracking-wide mt-1 mb-6 md:mb-8 leading-tight">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 text-2xl md:text-4xl lg:text-5xl">Shiva Varun</span>
           </p>
-          <div className="max-w-3xl px-4 text-center">
-            <p className="text-2xl md:text-6xl font-normal pb-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
-              Crafting Digital Experiences
+          <div className="max-w-5xl px-4 text-center">
+            <p className="text-2xl md:text-6xl font-semibold pb-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300 leading-tight md:leading-[1.1]">
+              <span className="block">From AI Agents to Apps</span>
+              <span className="block">We Build What Scales</span>
+              <span className="block">Your Business</span>
             </p>
-            <p className="text-sm md:text-xl font-normal text-neutral-400 mt-3">
-              We specialize in creating beautiful, functional websites and applications that help businesses grow and succeed in the digital world.
+            <p className="text-sm md:text-xl font-medium text-neutral-300 mt-5">
+              Custom AI automation, development, and digital solutions that work harder so you don’t have to.
             </p>
           </div>
         </div>

@@ -39,7 +39,7 @@ const Navbar = () => {
           >
             <SparklesText
               text="entropydev.vercel"
-              className="text-lg md:text-xl text-gray-900"
+              className="text-2xl md:text-3xl lg:text-4xl text-gray-900"
               colors={{ first: "#FFB7C5", second: "#4FABFF" }}
             />
           </motion.div>
