@@ -25,7 +25,11 @@ const HeroSection = () => {
 
   const scrollToServices = () => {
     const el = document.getElementById("services");
-    if (el) {
+    if (!el) return;
+    const lenis = (window as any).lenis as { scroll?: (to: HTMLElement | number | string, opts?: any) => void } | undefined;
+    if (lenis && typeof lenis.scroll === 'function') {
+      lenis.scroll(el, { offset: -16 });
+    } else {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };

@@ -111,7 +111,8 @@
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
   }
   html {
-    scroll-behavior: smooth;
+    /* Let Lenis control smooth scrolling to avoid double-easing */
+    scroll-behavior: auto;
   }
 }
 
