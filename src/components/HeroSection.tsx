@@ -2,7 +2,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React from "react";
-import { Vortex } from "@/components/ui/vortex";
+import { BackgroundLines } from "@/components/ui/background-lines";
 import { SparklesText } from "@/components/ui/sparkles-text";
 import { ChevronDown } from "lucide-react";
 
@@ -40,20 +40,7 @@ const HeroSection = () => {
         className="h-[90vh] md:h-[100vh] w-screen relative overflow-hidden bg-black"
         ref={ref}
       >
-        <Vortex
-          backgroundColor="#000000"
-          particleCount={500}
-          rangeY={150}
-          baseRadius={0.8}
-          rangeRadius={2}
-          rangeSpeed={1.4}
-          enableGlow={false}
-          maxFps={45}
-          pixelRatio={0.75}
-          className="w-full h-full"
-          containerClassName="absolute inset-0"
-        >
-        </Vortex>
+        <BackgroundLines className="absolute inset-0" svgOptions={{ duration: 6 }} />
         <div className="flex flex-col items-center justify-center gap-6 absolute inset-x-0 top-[35%] -translate-y-1/2 w-full">
           <motion.div style={{ opacity: heroTitleOpacity, y: heroTitleY }}>
             <SparklesText 
