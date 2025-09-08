@@ -15,12 +15,17 @@ interface VortexProps {
   baseRadius?: number;
   rangeRadius?: number;
   backgroundColor?: string;
+  // Performance tuning flags
+  enableGlow?: boolean; // default: true
+  maxFps?: number; // default: 60
+  pixelRatio?: number; // default: 1 (use < devicePixelRatio to reduce load)
 }
 
 export const Vortex = (props: VortexProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef(null);
   const animationFrameId = useRef<number>();
+  const lastFrameTime = useRef<number>(0);
   const particleCount = props.particleCount || 700;
   const particlePropCount = 9;
   const particlePropsLength = particleCount * particlePropCount;
@@ -38,6 +43,9 @@ export const Vortex = (props: VortexProps) => {
   const yOff = 0.00125;
   const zOff = 0.0005;
   const backgroundColor = props.backgroundColor || "#000000";
+  const enableGlow = props.enableGlow !== false; // true by default
+  const maxFps = props.maxFps ?? 60;
+  const targetPixelRatio = props.pixelRatio ?? 1; // render resolution scale
   let tick = 0;
   const noise3D = createNoise3D();
   let particleProps = new Float32Array(particlePropsLength);
@@ -95,7 +103,21 @@ export const Vortex = (props: VortexProps) => {
     particleProps.set([x, y, vx, vy, life, ttl, speed, radius, hue], i);
   };
 
-  const draw = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
+  const draw = (
+    canvas: HTMLCanvasElement,
+    ctx: CanvasRenderingContext2D,
+    time?: number,
+  ) => {
+    if (typeof time === "number" && maxFps && maxFps < 60) {
+      const minDt = 1000 / maxFps;
+      if (time - lastFrameTime.current < minDt) {
+        animationFrameId.current = window.requestAnimationFrame((t) =>
+          draw(canvas, ctx, t),
+        );
+        return;
+      }
+      lastFrameTime.current = time;
+    }
     tick++;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -104,11 +126,13 @@ export const Vortex = (props: VortexProps) => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     drawParticles(ctx);
-    renderGlow(canvas, ctx);
+    if (enableGlow) {
+      renderGlow(canvas, ctx);
+    }
     renderToScreen(canvas, ctx);
 
-    animationFrameId.current = window.requestAnimationFrame(() =>
-      draw(canvas, ctx),
+    animationFrameId.current = window.requestAnimationFrame((t) =>
+      draw(canvas, ctx, t),
     );
   };
 
@@ -189,10 +213,18 @@ export const Vortex = (props: VortexProps) => {
     canvas: HTMLCanvasElement,
     ctx?: CanvasRenderingContext2D,
   ) => {
-    const { innerWidth, innerHeight } = window;
+    const { innerWidth, innerHeight, devicePixelRatio } = window as any;
+    const pr = targetPixelRatio || 1;
+    const width = innerWidth;
+    const height = innerHeight;
 
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    canvas.width = Math.floor(width * pr);
+    canvas.height = Math.floor(height * pr);
+    if (ctx) {
+      ctx.setTransform(pr, 0, 0, pr, 0, 0);
+    }
 
     center[0] = 0.5 * canvas.width;
     center[1] = 0.5 * canvas.height;

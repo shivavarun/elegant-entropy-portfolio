@@ -42,11 +42,14 @@ const HeroSection = () => {
       >
         <Vortex
           backgroundColor="#000000"
-          particleCount={900}
-          rangeY={180}
-          baseRadius={1}
-          rangeRadius={3}
-          rangeSpeed={1.8}
+          particleCount={500}
+          rangeY={150}
+          baseRadius={0.8}
+          rangeRadius={2}
+          rangeSpeed={1.4}
+          enableGlow={false}
+          maxFps={45}
+          pixelRatio={0.75}
           className="w-full h-full"
           containerClassName="absolute inset-0"
         >
