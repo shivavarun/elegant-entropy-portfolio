@@ -114,6 +114,30 @@
     /* Let Lenis control smooth scrolling to avoid double-easing */
     scroll-behavior: auto;
   }
+  
+  /* Ensure fixed elements stay fixed on mobile */
+  @supports (-webkit-touch-callout: none) {
+    .fixed {
+      position: -webkit-sticky;
+      position: sticky;
+      position: fixed;
+    }
+  }
+  
+  /* Prevent layout shifts on mobile */
+  @media (max-width: 768px) {
+    body {
+      -webkit-overflow-scrolling: touch;
+      overflow-scrolling: touch;
+    }
+    
+    .fixed {
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+  }
 }
 
 .section-padding {

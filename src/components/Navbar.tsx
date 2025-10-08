@@ -23,21 +23,43 @@ const Navbar = () => {
       setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
     };
 
+    // Use passive listener for better performance on mobile
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    // Also listen for resize events to ensure navbar stays fixed
+    const handleResize = () => {
+      // Force a small delay to ensure layout is complete
+      setTimeout(() => {
+        handleScroll();
+      }, 100);
+    };
+    
+    window.addEventListener("resize", handleResize, { passive: true });
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
+      style={{ 
+        position: 'fixed',
+        transform: 'translateZ(0)', // Force hardware acceleration
+        backfaceVisibility: 'hidden', // Prevent flickering on mobile
+        WebkitBackfaceVisibility: 'hidden'
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center h-16">
+        <div className="flex items-center justify-center h-16 relative">
           <motion.div
             style={{ opacity: brandOpacity, y: brandY, scale: brandScale }}
             aria-label="Site brand"
+            className="relative z-10"
           >
             <SparklesText
               text="entropydev.vercel"
