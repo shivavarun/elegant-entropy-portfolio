@@ -2,7 +2,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React from "react";
-import { BackgroundLines } from "@/components/ui/background-lines";
+import Orb from "@/components/ui/Orb";
 import { SparklesText } from "@/components/ui/sparkles-text";
 import { ChevronDown } from "lucide-react";
 
@@ -37,29 +37,43 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative">
       <div
-        className="h-[90vh] md:h-[100vh] w-screen relative overflow-hidden bg-black"
+        className="h-[100vh] w-full relative overflow-hidden bg-black"
         ref={ref}
       >
-        <BackgroundLines className="absolute inset-0" svgOptions={{ duration: 6 }} />
-        <div className="flex flex-col items-center justify-center gap-6 absolute inset-x-0 top-[35%] -translate-y-1/2 w-full">
+        <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            style={{ width: '100%', height: '600px', position: 'relative' }}
+          >
+            <Orb
+              hoverIntensity={0.5}
+              rotateOnHover={true}
+              hue={0}
+              forceHoverState={false}
+            />
+          </motion.div>
+        </div>
+        <div className="flex flex-col items-center justify-center gap-4 md:gap-6 absolute inset-x-0 top-[35%] -translate-y-1/2 w-full z-10 px-4">
           <motion.div style={{ opacity: heroTitleOpacity, y: heroTitleY }}>
             <SparklesText 
               text="entropydev.vercel" 
-              className="text-5xl md:text-8xl text-white mb-4"
+              className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl text-white mb-2 md:mb-4"
               colors={{ first: "#FFB7C5", second: "#4FABFF" }}
             />
           </motion.div>
-          <p className="font-bold tracking-wide mt-1 mb-6 md:mb-8 leading-tight">
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 text-2xl md:text-4xl lg:text-5xl">Shiva Varun</span>
+          <p className="font-bold tracking-wide mt-1 mb-4 md:mb-6 lg:mb-8 leading-tight">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">Shiva Varun</span>
           </p>
-          <div className="max-w-5xl px-4 text-center">
-            <p className="text-2xl md:text-6xl font-semibold pb-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300 leading-tight md:leading-[1.1]">
+          <div className="max-w-5xl text-center">
+            <p className="text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl font-semibold pb-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300 leading-tight">
               <span className="block">From AI Agents to Apps</span>
               <span className="block">We Build What Scales</span>
               <span className="block">Your Business</span>
             </p>
-            <p className="text-sm md:text-xl font-medium text-neutral-300 mt-5">
-              Custom AI automation, development, and digital solutions that work harder so you don’t have to.
+            <p className="text-sm md:text-lg lg:text-xl font-medium text-neutral-300 mt-3 md:mt-5 max-w-3xl mx-auto">
+              Custom AI automation, development, and digital solutions that work harder so you don't have to.
             </p>
           </div>
         </div>
