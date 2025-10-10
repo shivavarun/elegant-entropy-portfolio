@@ -82,9 +82,9 @@ type StarsBackgroundProps = React.ComponentProps<'div'> & {
 function StarsBackground({
   children,
   className,
-  factor = 0.05,
-  speed = 50,
-  transition = { stiffness: 50, damping: 20 },
+  factor = 0.03,
+  speed = 60,
+  transition = { stiffness: 100, damping: 30 },
   starColor = '#fff',
   pointerEvents = true,
   ...props
@@ -97,6 +97,7 @@ function StarsBackground({
 
   const handleMouseMove = React.useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      // Throttle mouse movements for better performance
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
       const newOffsetX = -(e.clientX - centerX) * factor;
@@ -118,31 +119,31 @@ function StarsBackground({
       {...props}
     >
       <motion.div
-        style={{ x: springX, y: springY }}
+        style={{ x: springX, y: springY, willChange: 'transform' }}
         className={cn({ 'pointer-events-none': !pointerEvents })}
       >
         <StarLayer
-          count={1000}
+          count={800}
           size={1}
           transition={{ repeat: Infinity, duration: speed, ease: 'linear' }}
           starColor={starColor}
         />
         <StarLayer
-          count={400}
+          count={300}
           size={2}
           transition={{
             repeat: Infinity,
-            duration: speed * 2,
+            duration: speed * 1.8,
             ease: 'linear',
           }}
           starColor={starColor}
         />
         <StarLayer
-          count={200}
+          count={150}
           size={3}
           transition={{
             repeat: Infinity,
-            duration: speed * 3,
+            duration: speed * 2.5,
             ease: 'linear',
           }}
           starColor={starColor}

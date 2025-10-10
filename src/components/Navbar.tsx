@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { SparklesText } from "@/components/ui/sparkles-text";
 
 const Navbar = () => {
