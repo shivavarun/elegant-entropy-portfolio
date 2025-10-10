@@ -2,7 +2,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React from "react";
-import Orb from "@/components/ui/Orb";
+import { HoleBackground } from "@/components/ui/HoleBackground";
 import { SparklesText } from "@/components/ui/sparkles-text";
 import { ChevronDown } from "lucide-react";
 
@@ -26,53 +26,48 @@ const HeroSection = () => {
   const scrollToServices = () => {
     const el = document.getElementById("services");
     if (!el) return;
-    const lenis = (window as any).lenis as { scroll?: (to: HTMLElement | number | string, opts?: any) => void } | undefined;
-    if (lenis && typeof lenis.scroll === 'function') {
-      lenis.scroll(el, { offset: -16 });
-    } else {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <section id="home" className="relative">
+    <section id="home" className="relative w-full">
       <div
-        className="h-[100vh] w-full relative overflow-hidden bg-black"
+        className="h-screen w-full relative overflow-hidden bg-black"
         ref={ref}
       >
-        <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 w-full h-full">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            style={{ width: '100%', height: '600px', position: 'relative' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+            className="w-full h-full"
           >
-            <Orb
-              hoverIntensity={0.5}
-              rotateOnHover={true}
-              hue={0}
-              forceHoverState={false}
+            <HoleBackground
+              strokeColor="#737373"
+              numberOfLines={50}
+              numberOfDiscs={50}
+              particleRGBColor={[255, 255, 255]}
             />
           </motion.div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-4 md:gap-6 absolute inset-x-0 top-[35%] -translate-y-1/2 w-full z-10 px-4">
-          <motion.div style={{ opacity: heroTitleOpacity, y: heroTitleY }}>
+        <div className="flex flex-col items-center justify-center gap-4 md:gap-6 absolute inset-0 w-full h-full z-10 px-4 sm:px-6 lg:px-8">
+          <motion.div style={{ opacity: heroTitleOpacity, y: heroTitleY }} className="text-center">
             <SparklesText 
               text="entropydev.vercel" 
-              className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl text-white mb-2 md:mb-4"
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-8xl text-white mb-2 md:mb-4"
               colors={{ first: "#FFB7C5", second: "#4FABFF" }}
             />
           </motion.div>
-          <p className="font-bold tracking-wide mt-1 mb-4 md:mb-6 lg:mb-8 leading-tight">
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">Shiva Varun</span>
+          <p className="font-bold tracking-wide mb-4 md:mb-6 lg:mb-8 leading-tight text-center">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-blue-300 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">Shiva Varun</span>
           </p>
-          <div className="max-w-5xl text-center">
-            <p className="text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl font-semibold pb-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300 leading-tight">
-              <span className="block">From AI Agents to Apps</span>
-              <span className="block">We Build What Scales</span>
+          <div className="max-w-6xl text-center px-4">
+            <p className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-5xl font-semibold pb-2 bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300 leading-tight">
+              <span className="block mb-1">From AI Agents to Apps</span>
+              <span className="block mb-1">We Build What Scales</span>
               <span className="block">Your Business</span>
             </p>
-            <p className="text-sm md:text-lg lg:text-xl font-medium text-neutral-300 mt-3 md:mt-5 max-w-3xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium text-neutral-300 mt-4 md:mt-6 max-w-4xl mx-auto">
               Custom AI automation, development, and digital solutions that work harder so you don't have to.
             </p>
           </div>

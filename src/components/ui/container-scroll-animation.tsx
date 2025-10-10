@@ -1,7 +1,7 @@
-
 "use client";
 import React, { useRef } from "react";
-import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import { useScroll, useTransform, motion, MotionValue } from "motion/react";
+import { StarsBackground } from "@/components/ui/StarsBackground";
 
 export const ContainerScroll = ({
   titleComponent,
@@ -31,17 +31,21 @@ export const ContainerScroll = ({
     return isMobile ? [0.7, 0.9] : [1.05, 1];
   };
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 20]);
+  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions().reverse() as [number, number]);
+  const translate = useTransform(scrollYProgress, [0, 1], [-100, 0]);
 
   return (
-    <div
-      className="h-[60rem] md:h-[80rem] flex items-center justify-center relative p-2 md:p-20"
-      ref={containerRef}
+    <StarsBackground
+      factor={0.04}
+      speed={40}
+      starColor="rgba(255, 255, 255, 0.6)"
+      pointerEvents={false}
+      className="h-[50rem] md:h-[65rem] flex items-center justify-center relative p-2 md:p-20"
     >
       <div
-        className="py-10 md:py-40 w-full relative"
+        className="py-8 md:py-16 w-full relative z-10"
+        ref={containerRef}
         style={{
           perspective: "1000px",
         }}
@@ -51,7 +55,7 @@ export const ContainerScroll = ({
           {children}
         </Card>
       </div>
-    </div>
+    </StarsBackground>
   );
 };
 
@@ -71,7 +75,6 @@ export const Header = ({ translate, titleComponent }: any) => {
 export const Card = ({
   rotate,
   scale,
-  translate,
   children,
 }: {
   rotate: MotionValue<number>;
@@ -89,7 +92,7 @@ export const Card = ({
       }}
       className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
     >
-      <div className="h-full w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl md:p-4">
+      <div className=" h-full w-full  overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl md:p-4 ">
         {children}
       </div>
     </motion.div>

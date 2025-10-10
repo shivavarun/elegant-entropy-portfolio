@@ -1,4 +1,5 @@
 import { Timeline } from "@/components/ui/timeline";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
 const ProjectsSection = () => {
   const projects = [
@@ -121,8 +122,38 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="relative bg-black text-white">
-      <Timeline data={projects} />
+    <section id="projects" className="relative bg-transparent text-white">
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-transparent" />
+      </div>
+      <div className="relative z-10">
+        <Timeline data={projects} />
+        
+        {/* Container Scroll Animation - Reduced gap but with proper spacing */}
+        <div className="bg-transparent -mt-8 pt-8">
+          <ContainerScroll
+            titleComponent={
+              <div className="text-center mb-8">
+                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                  Interactive Portfolio Showcase
+                </h2>
+                <p className="text-gray-400 max-w-2xl mx-auto">
+                  Discover our work through immersive scroll animations
+                </p>
+              </div>
+            }
+          >
+            <div className="mx-auto rounded-2xl object-cover h-full object-left-top">
+              <img
+                src="/lovable-uploads/1722307a-a1da-4627-98fd-597c99d0f4bc.png"
+                alt="Interactive showcase"
+                className="mx-auto rounded-2xl object-cover h-full object-left-top"
+                draggable={false}
+              />
+            </div>
+          </ContainerScroll>
+        </div>
+      </div>
     </section>
   );
 };

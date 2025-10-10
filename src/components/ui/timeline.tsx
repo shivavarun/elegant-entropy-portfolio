@@ -6,6 +6,7 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import { StarsBackground } from "@/components/ui/StarsBackground";
 
 interface TimelineEntry {
   title: string;
@@ -33,10 +34,17 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    <div
-      className="w-full bg-background font-sans md:px-10"
-      ref={containerRef}
+    <StarsBackground
+      factor={0.03}
+      speed={60}
+      starColor="rgba(255, 255, 255, 0.6)"
+      pointerEvents={false}
+      className="w-full bg-transparent font-sans md:px-10"
     >
+      <div
+        className="w-full bg-transparent font-sans md:px-10 relative z-10"
+        ref={containerRef}
+      >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <h2 className="text-lg md:text-4xl mb-4 text-foreground max-w-4xl">
           Featured Projects
@@ -46,7 +54,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         </p>
       </div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="relative max-w-7xl mx-auto pb-16">
         {data.map((item, index) => (
           <div
             key={index}
@@ -84,6 +92,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           />
         </div>
       </div>
-    </div>
+      </div>
+    </StarsBackground>
   );
 };

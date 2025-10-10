@@ -109,10 +109,11 @@
   body {
     @apply bg-background text-foreground;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
   }
   html {
-    /* Let Lenis control smooth scrolling to avoid double-easing */
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scroll */
   }
   
   /* Ensure fixed elements stay fixed on mobile */
@@ -137,6 +138,16 @@
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
     }
+  }
+  
+  /* Full width and height utility */
+  .w-screen {
+    width: 100vw;
+  }
+  
+  .h-screen {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
   }
 }
 

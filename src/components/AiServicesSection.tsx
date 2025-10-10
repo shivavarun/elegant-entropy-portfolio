@@ -1,7 +1,4 @@
 import { Brain, Bot, Database, Code, Server, Bot as Assistant, Mail, Share2, ShoppingCart, FileText, FileSearch, Stethoscope, Smartphone, Palette } from "lucide-react";
-import { ShootingStars } from "@/components/ui/shooting-stars";
-import SpotlightCard from "@/components/ui/SpotlightCard";
-import { Grid } from "@/components/ui/grid-pattern";
 
 const aiServices = [
   {
@@ -91,28 +88,10 @@ const aiServices = [
 
 const AiServicesSection = () => {
   return (
-    <section id="services" className="section-padding relative bg-black text-white">
+    <section id="services" className="section-padding relative bg-transparent text-white">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.15)_0%,rgba(0,0,0,0)_80%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(2px_2px_at_20px_30px,#eee,rgba(0,0,0,0)),radial-gradient(2px_2px_at_40px_70px,#fff,rgba(0,0,0,0)),radial-gradient(2px_2px_at_50px_160px,#ddd,rgba(0,0,0,0)),radial-gradient(2px_2px_at_90px_40px,#fff,rgba(0,0,0,0)),radial-gradient(2px_2px_at_130px_80px,#fff,rgba(0,0,0,0)),radial-gradient(2px_2px_at_160px_120px,#ddd,rgba(0,0,0,0))] bg-repeat bg-[size:200px_200px] animate-[twinkle_5s_ease-in-out_infinite] opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-transparent" />
       </div>
-
-      <ShootingStars
-        starColor="#00FFB2"
-        trailColor="#4FABFF"
-        minSpeed={20}
-        maxSpeed={40}
-        minDelay={1500}
-        maxDelay={3500}
-      />
-      <ShootingStars
-        starColor="#FF00E5"
-        trailColor="#FFB800"
-        minSpeed={10}
-        maxSpeed={25}
-        minDelay={2000}
-        maxDelay={4000}
-      />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
@@ -141,7 +120,6 @@ const AiServicesSection = () => {
                     key={serviceIndex}
                     className="relative rounded-3xl p-6 bg-gradient-to-b from-white/5 to-white/[0.02] border border-white/10 hover:border-white/20 transition-all hover:-translate-y-1 overflow-hidden"
                   >
-                    <Grid size={18} />
                     <div className="relative z-10">
                       <div className="w-12 h-12 bg-white/10 text-white rounded-xl flex items-center justify-center mb-4">
                         <service.icon className="w-6 h-6" />
