@@ -116,19 +116,10 @@
     overflow-x: hidden; /* Prevent horizontal scroll */
   }
   
-  /* Performance optimizations for animations */
+  /* Optimized animations for better performance */
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  /* GPU acceleration for smooth animations */
-  .motion-div, [data-slot="star-layer"], [data-slot="stars-background"] {
-    will-change: transform;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
   }
   
   /* Ensure fixed elements stay fixed on mobile */
@@ -140,18 +131,11 @@
     }
   }
   
-  /* Prevent layout shifts on mobile */
+  /* Optimized fixed elements for mobile */
   @media (max-width: 768px) {
     body {
       -webkit-overflow-scrolling: touch;
       overflow-scrolling: touch;
-    }
-    
-    .fixed {
-      transform: translateZ(0);
-      -webkit-transform: translateZ(0);
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
     }
   }
   
@@ -186,11 +170,11 @@
 }
 
 .card-gradient {
-  @apply bg-gradient-to-br from-card to-secondary/80 backdrop-blur-sm;
+  @apply bg-gradient-to-br from-card to-secondary/80; /* Removed backdrop-blur for lighter performance */
 }
 
 .glass-morphism {
-  @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.3)];
+  @apply bg-white/5 border border-white/10 shadow-md; /* Reduced shadow for lighter performance */
 }
 
 .text-gradient {

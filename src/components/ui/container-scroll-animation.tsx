@@ -43,10 +43,10 @@ export const ContainerScroll = ({
     return isMobile ? [0.8, 0.95] : [1.02, 1];
   };
 
-  // Optimized transforms with reduced calculations
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 15]);
+  // Ultra-lightweight transforms for maximum compatibility
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 5]); // Reduced rotation
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [-50, 0]);
+  const translate = useTransform(scrollYProgress, [0, 1], [-15, 0]); // Reduced translation
 
   return (
     <StarsBackground
@@ -100,9 +100,8 @@ export const Card = ({
       style={{
         rotateX: rotate,
         scale,
-        willChange: 'transform',
       }}
-      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
+      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-lg"
     >
       <div className="h-full w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl md:p-4">
         {children}

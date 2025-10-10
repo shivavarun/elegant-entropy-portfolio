@@ -120,9 +120,9 @@ const HeroSection = () => {
         <motion.button
           onClick={scrollToServices}
           aria-label="Scroll to services"
-          className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 p-2 rounded-full border border-white/30 text-white/80 hover:text-white hover:border-white/60 bg-white/5 backdrop-blur-sm"
-          animate={{ y: [0, 8, 0], opacity: [0.7, 1, 0.7] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 p-2 rounded-full border border-white/30 text-white/80 hover:text-white hover:border-white/60 bg-white/5" // Removed backdrop-blur for lighter performance
+          animate={{ y: [0, 6, 0], opacity: [0.7, 1, 0.7] }} // Reduced animation range
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} // Slower animation
         >
           <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
         </motion.button>

@@ -36,7 +36,7 @@ const ContactSection = () => {
         </div>
 
         <div className="max-w-xl mx-auto relative">
-          <div className="relative bg-black/40 backdrop-blur-xl rounded-xl p-8 shadow-2xl">
+          <div className="relative bg-black/40 rounded-xl p-8 shadow-lg">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-200">

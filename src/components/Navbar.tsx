@@ -45,13 +45,11 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
+        isScrolled ? "bg-white/80 shadow-sm" : "bg-transparent" // Removed backdrop-blur for lighter performance
       }`}
       style={{ 
-        position: 'fixed',
-        transform: 'translateZ(0)', // Force hardware acceleration
-        backfaceVisibility: 'hidden', // Prevent flickering on mobile
-        WebkitBackfaceVisibility: 'hidden'
+        position: 'fixed'
+        // Removed GPU acceleration for lighter performance
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

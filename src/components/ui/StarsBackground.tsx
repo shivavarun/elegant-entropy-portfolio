@@ -22,17 +22,17 @@ type StarLayerProps = HTMLMotionProps<'div'> & {
 function generateStars(count: number, starColor: string) {
   const shadows: string[] = [];
   for (let i = 0; i < count; i++) {
-    const x = Math.floor(Math.random() * 4000) - 2000;
-    const y = Math.floor(Math.random() * 4000) - 2000;
+    const x = Math.floor(Math.random() * 3000) - 1500; // Reduced range for lighter effect
+    const y = Math.floor(Math.random() * 3000) - 1500;
     shadows.push(`${x}px ${y}px ${starColor}`);
   }
   return shadows.join(', ');
 }
 
 function StarLayer({
-  count = 1000,
+  count = 400, // Further reduced for ultra-light performance
   size = 1,
-  transition = { repeat: Infinity, duration: 50, ease: 'linear' },
+  transition = { repeat: Infinity, duration: 80, ease: 'linear' }, // Much slower animation
   starColor = '#fff',
   className,
   ...props
@@ -46,9 +46,9 @@ function StarLayer({
   return (
     <motion.div
       data-slot="star-layer"
-      animate={{ y: [0, -2000] }}
+      animate={{ y: [0, -1500] }} // Reduced distance for lighter animation
       transition={transition}
-      className={cn('absolute top-0 left-0 w-full h-[2000px]', className)}
+      className={cn('absolute top-0 left-0 w-full h-[1500px]', className)} // Reduced height
       {...props}
     >
       <div
@@ -60,7 +60,7 @@ function StarLayer({
         }}
       />
       <div
-        className="absolute bg-transparent rounded-full top-[2000px]"
+        className="absolute bg-transparent rounded-full top-[1500px]" // Adjusted for new height
         style={{
           width: `${size}px`,
           height: `${size}px`,
@@ -82,22 +82,22 @@ type StarsBackgroundProps = React.ComponentProps<'div'> & {
 function StarsBackground({
   children,
   className,
-  factor = 0.03,
-  speed = 60,
-  transition = { stiffness: 100, damping: 30 },
+  factor = 0.01, // Minimal mouse interactions for ultra-light performance
+  speed = 120, // Much slower for maximum compatibility
+  transition = { stiffness: 100, damping: 60 }, // Ultra-light spring settings
   starColor = '#fff',
   pointerEvents = true,
   ...props
 }: StarsBackgroundProps) {
-  const offsetX = useMotionValue(1);
-  const offsetY = useMotionValue(1);
+  const offsetX = useMotionValue(0);
+  const offsetY = useMotionValue(0);
 
   const springX = useSpring(offsetX, transition);
   const springY = useSpring(offsetY, transition);
 
   const handleMouseMove = React.useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-      // Throttle mouse movements for better performance
+      // Lightweight mouse movements
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
       const newOffsetX = -(e.clientX - centerX) * factor;
@@ -119,17 +119,17 @@ function StarsBackground({
       {...props}
     >
       <motion.div
-        style={{ x: springX, y: springY, willChange: 'transform' }}
+        style={{ x: springX, y: springY }} // Removed willChange for lighter animation
         className={cn({ 'pointer-events-none': !pointerEvents })}
       >
         <StarLayer
-          count={800}
+          count={300} // Ultra-reduced count
           size={1}
           transition={{ repeat: Infinity, duration: speed, ease: 'linear' }}
           starColor={starColor}
         />
         <StarLayer
-          count={300}
+          count={150} // Ultra-reduced count
           size={2}
           transition={{
             repeat: Infinity,
@@ -139,7 +139,7 @@ function StarsBackground({
           starColor={starColor}
         />
         <StarLayer
-          count={150}
+          count={75} // Ultra-reduced count
           size={3}
           transition={{
             repeat: Infinity,
