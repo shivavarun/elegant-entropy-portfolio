@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AiServicesSection from "@/components/AiServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import FeaturedWork from "@/components/FeaturedWork";
 import ContactSection from "@/components/ContactSection";
 import { StarsBackground } from "@/components/ui/StarsBackground";
 
@@ -22,7 +23,7 @@ const techLogos = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen bg-black relative">
       <Navbar />
       <main className="relative z-10">
         <HeroSection />
@@ -36,6 +37,7 @@ const Index = () => {
           className="min-h-screen"
         >
           <AiServicesSection />
+          <FeaturedWork />
           <ProjectsSection />
           <div className="flex flex-col justify-center items-center py-20 space-y-8">
             <Shuffle

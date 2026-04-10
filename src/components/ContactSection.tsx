@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import SoftAurora from "@/components/SoftAurora";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -20,9 +21,27 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding relative bg-transparent">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+    <section id="contact" className="section-padding relative bg-transparent overflow-hidden">
+      {/* SoftAurora WebGL background */}
+      <div className="absolute inset-0 z-0">
+        <SoftAurora
+          speed={0.6}
+          scale={1.5}
+          brightness={1}
+          color1="#f7f7f7"
+          color2="#e100ff"
+          noiseFrequency={2.5}
+          noiseAmplitude={1}
+          bandHeight={0.5}
+          bandSpread={1}
+          octaveDecay={0.1}
+          layerOffset={0}
+          colorSpeed={1}
+          enableMouseInteraction
+          mouseInfluence={0.25}
+        />
+        {/* Dark overlay to keep text readable */}
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -36,7 +55,7 @@ const ContactSection = () => {
         </div>
 
         <div className="max-w-xl mx-auto relative">
-          <div className="relative bg-black/40 rounded-xl p-8 shadow-lg">
+          <div className="relative bg-black/40 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-white/10">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-200">
